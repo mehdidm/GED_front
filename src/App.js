@@ -6,7 +6,7 @@ import Main from "./components/main/Main"
 import { BrowserRouter as Router , Switch , Route , Link} from 'react-router-dom';
 import ListFile from './pages/file_list/File_list';
 import AddFile from './pages/add_file/Add_file';
-import Login from './pages/auth/Login';
+import Auth from './pages/auth/Login';
 
 function App() {
   const [sidebarOpen , setSidebarOpen] = useState(false);
@@ -31,7 +31,7 @@ function App() {
     <Route path="/"  exact component={Main}/>
     <Route path="/list" component={ListFile}/>
     <Route path="/add_file" component={AddFile}/>
-    <Route path="/login" component={Login}/>
+    <Route path="/login" component={Auth}/>
     
      
     </Switch>
