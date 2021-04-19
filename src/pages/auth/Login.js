@@ -24,9 +24,9 @@ export default class Auth extends Component{
     render(){
         return(
             <form onSubmit={this.handleSubmit}> 
-            <h3>Sign in</h3>
+            <h3>Login</h3>
             <div className="form-group">
-                <label>Username</label>
+                <label>Usernamee</label>
                 <input type="email" className="form-control" placeholder="Email" onChange={e =>this.username = e.target.value}/>
                 
             </div>
