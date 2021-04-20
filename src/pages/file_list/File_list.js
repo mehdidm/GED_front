@@ -14,14 +14,13 @@ import Versions from './DataFetching';
 
  function File_list() {
 
-  
+
  function Files(){
-
-
+ 
   const [files , setfiles] = useState ([]);
  async function FetchFiles () {
-    await axios.get('http://localhost:8080/files') . then(res =>{
-      
+    await axios.get('files') . then(res =>{
+      console.log(res.data)
       setfiles(res.data)
     });
   }
@@ -53,17 +52,17 @@ function RenderFiles(file , index){
  
   return(
     <tr key={index}>
-    <td> {file.name}</td>
-    <td>{file.id}</td>
-    <td>{file.size}</td>
-    <td><Versions id ={file.id}></Versions></td>
+    <td> {file[1]}</td>
+    <td>{file[0]}</td>
+    <td>{file[3]}</td>
+    <td><Versions id ={file[0]}></Versions></td>
     
     
-    <MyDropzone id ={file.id} />
+    <MyDropzone id ={file[0]} />
     <td>
      
     <ReactBootstrap.Button variant="primary" >
-      <a href={ 'http://localhost:8080/files/' + file.id }>Download main file</a>
+      <a href={ 'http://localhost:8080/files/' + file[0] }>Download main file</a>
     </ReactBootstrap.Button>
     <br/>
     <br/>

@@ -1,9 +1,35 @@
 import "./Main.css";
 import hello from "../../assets/avatar.png";
 import Chart from "../charts/Charts";
+import { Component } from "react";
+import axios from "axios";
 
 
-const Main = () => {
+export default class  Main extends Component {
+
+
+componentDidMount() {
+  const config = {
+    headers:{
+      Authorization: 'Bearer' + localStorage.getItem('token')
+    }
+  };
+  axios.get('files',config).then(
+    res => {
+      console.log(res);
+    },
+    err =>{
+      console.log(err)
+    }
+    )
+}
+
+
+
+
+  
+
+render(){
   return (
     <main>
       <div className="main__container">
@@ -171,6 +197,5 @@ const Main = () => {
       </div>
     </main>
   );
+}
 };
-
-export default Main;

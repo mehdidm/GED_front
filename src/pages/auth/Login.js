@@ -10,10 +10,11 @@ export default class Auth extends Component{
             username : this.username,
             password:this.password
         }
-        axios.post('http://localhost:8080/authenticate', data)
+        axios.post('authenticate', data)
         
         .then(res => {
             console.log(res)
+            localStorage.setItem('token', res.data.token);
             
             
         })
