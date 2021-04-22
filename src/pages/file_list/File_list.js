@@ -16,10 +16,15 @@ import Versions from './DataFetching';
 
 
  function Files(){
+  const config ={
+    headers : {
+        Authorization: 'Bearer ' + "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ0ZXN0QHRlc3QuY29tIiwiZXhwIjoxNjE4OTcwMjEyLCJpYXQiOjE2MTg5MzQyMTJ9.L1ZxAtvW-9EGHm6VYyctnvGUxOUg_hJLJ2ddit-U-Xg"
+                }
+};
  
   const [files , setfiles] = useState ([]);
  async function FetchFiles () {
-    await axios.get('files') . then(res =>{
+    await axios.get('files',config) . then(res =>{
       console.log(res.data)
       setfiles(res.data)
     });

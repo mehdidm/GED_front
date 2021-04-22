@@ -6,23 +6,34 @@ import axios from "axios";
 
 
 export default class  Main extends Component {
+  constructor(props) {
+    super(props);
+
+    this.state = {
+      redirect: null,
+      userReady: false,
+      currentUser: { username: "" }
+    };
+  }
 
 
-componentDidMount() {
-  const config = {
-    headers:{
-      Authorization: 'Bearer' + localStorage.getItem('token')
+
+  componentDidMount() {
+    const config ={
+      headers:{
+        Authorization: 'Bearer' + localStorage.getItem('user')
+      }
     }
-  };
-  axios.get('files',config).then(
-    res => {
-      console.log(res);
-    },
-    err =>{
-      console.log(err)
-    }
+    axios.get('username',config).then(
+      res =>{
+        console.log(res);
+      },
+      err => {
+        console.log(err)
+      }
     )
-}
+
+  }
 
 
 
@@ -30,7 +41,9 @@ componentDidMount() {
   
 
 render(){
+  const { currentUser } = this.state;
   return (
+    
     <main>
       <div className="main__container">
         {/* <!-- MAIN TITLE STARTS HERE --> */}
@@ -111,32 +124,7 @@ render(){
                 <p>Siles</p>
                 
 
-    <tr>
-      <th>#</th>
-      <th>First Name</th>
-      <th>Last Name</th>
-      <th>Username</th>
-    </tr>
-  
-  
-    <tr>
-      <td>1</td>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-    </tr>
-    <tr>
-      <td>2</td>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <td>3</td>
-      <td colSpan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
-  
+   
               </div>
               <i className="fa fa-file" aria-hidden="true"></i>
               
