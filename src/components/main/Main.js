@@ -21,10 +21,10 @@ export default class  Main extends Component {
   componentDidMount() {
     const config ={
       headers:{
-        Authorization: 'Bearer' + localStorage.getItem('user')
+        Authorization: 'Bearer ' + localStorage.getItem('token')
       }
     }
-    axios.get('username',config).then(
+    axios.get('files',config).then(
       res =>{
         console.log(res);
       },

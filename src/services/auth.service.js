@@ -9,12 +9,13 @@ class AuthService {
         username,
         password
       })
-      .then(response => {
-        if (response.data.accessToken) {
+  .then(response => {
+    /*    if (response.data.accessToken) {
           
           localStorage.setItem("user", JSON.stringify(response.data));
-        }
-
+        }c
+*/
+console.log(response)
         return response.data;
      
      
